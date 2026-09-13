@@ -1,3 +1,6 @@
 .env
 .venv
 data/raw/PS_20174392719_1491204439457_log.csv
+__pycache__/
+*.pyc
+.ruff_cache
