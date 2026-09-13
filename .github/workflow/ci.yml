@@ -1,4 +1,3 @@
-#Work as a linter
 name: CI
 
 on:
@@ -35,3 +34,24 @@ jobs:
 
       - name: Run Ruff format check
         run: ruff format --check .
+
+  security:
+    name: Dependency Vulnerability Scan (pip-audit)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install pip-audit
+        run: pip install pip-audit
+
+      - name: Audit dependencies for known vulnerabilities
+        run: pip-audit -r requirements.txt --desc
+
+  # test:
