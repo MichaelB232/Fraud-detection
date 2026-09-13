@@ -11,7 +11,7 @@ asyncpg==0.29.0
 pydantic==2.9.2
 pydantic-settings==2.5.2
 
-pyjwt[crypto]==2.9.0        
+pyjwt[crypto]>=2.13.0        
 passlib[bcrypt]==1.7.4        
 
 scikit-learn==1.5.2
