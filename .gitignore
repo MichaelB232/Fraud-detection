@@ -1,3 +1,56 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Virtual environment ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Packaging / build artifacts ---
+*.egg-info/
+.eggs/
+build/
+dist/
+*.egg
+
+# --- Environment / secrets ---
 .env
-.venv
-data/raw/PS_20174392719_1491204439457_log.csv
+.env.*
+!.env.example
+
+# --- Testing / coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Data & model artifacts (see README for how to obtain these) ---
+data/raw/
+data/processed/
+ml/artifacts/*.pkl
+ml/artifacts/*.joblib
+
+# --- Database ---
+*.sqlite3
+postgres_data/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs ---
+*.log
