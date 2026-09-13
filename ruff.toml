@@ -1,0 +1,33 @@
+line-length = 100
+target-version = "py311"
+
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "alembic/versions",
+    "notebooks",
+]
+
+[lint]
+# E, F   - pyflakes / pycodestyle core errors
+# I      - import sorting (replaces isort)
+# UP     - pyupgrade (modern Python syntax)
+# B      - bugbear (common bug patterns)
+# C4     - comprehension cleanups
+# SIM    - simplifiable code
+# S      - bandit-style security checks (relevant for a fintech app)
+select = ["E", "F", "I", "UP", "B", "C4", "SIM", "S"]
+ignore = [
+    "E501",  # line length handled by formatter, not linter
+]
+
+[lint.per-file-ignores]
+# Tests can use asserts, hardcoded fake secrets, etc. without tripping security checks
+"tests/*" = ["S101", "S105", "S106"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
