@@ -1,10 +1,16 @@
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent  # otomatis nemu root project
+
+MODEL_PATH = BASE_DIR / "ml" / "artifacts" / "v1" / "model.pkl"
+DATA_DIR = BASE_DIR / "data"
 
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    # --- Database ---
     DB_USER: str
     DB_PASSWORD: str
     db_host: str = "localhost"
@@ -18,7 +24,6 @@ class Settings(BaseSettings):
             f"@{self.db_host}:{self.db_port}/{self.DB_NAME}"
         )
 
-    # --- Auth ---
     secret_key: str
 
 
