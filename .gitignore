@@ -54,3 +54,5 @@ desktop.ini
 
 # --- Logs ---
 *.log
+
+.fraud_detection_platform.egg-info
